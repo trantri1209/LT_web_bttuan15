@@ -1,0 +1,34 @@
+type User {
+    id: ID!
+    fullname: String
+    email: String
+    phone: String
+    categories: [Category]
+    products: [Product]
+}
+
+type Category {
+    id: ID!
+    name: String
+    images: String
+    user: User
+}
+
+type Product {
+    id: ID!
+    title: String
+    quantity: Int
+    desc: String
+    user: User
+}
+
+type Query {
+    getAllUsers: [User]
+    getUserById(id: ID!): User
+}
+
+type Mutation {
+    createUser(fullname: String!, email: String!, password: String!, phone: String!): User
+    updateUser(id: ID!, fullname: String, email: String, phone: String): User
+    deleteUser(id: ID!): String
+}
